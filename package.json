@@ -1,0 +1,21 @@
+{
+  "name": "shadow-cursor",
+  "version": "0.1.0",
+  "description": "A second cursor with an LLM brain. Point at anything on a page and ask.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  },
+  "devDependencies": {
+    "@types/chrome": "latest",
+    "esbuild": "latest",
+    "typescript": "latest"
+  }
+}

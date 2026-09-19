@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Shadow Cursor",
+  "version": "0.1.0",
+  "description": "A second cursor with an LLM brain. Point at anything on a page and ask.",
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "Summon Shadow Cursor (Alt+Shift+S)"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "summon": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Summon or dismiss the shadow cursor"
+    }
+  }
+}
