@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shadow Cursor — Privacy Policy</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font: 16px/1.6 -apple-system, "Segoe UI", system-ui, sans-serif;
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+        color: #1a1a1f;
+        background: #fff;
+      }
+      @media (prefers-color-scheme: dark) {
+        body { color: #ececf1; background: #0b0b0f; }
+        a { color: #a5a8ff; }
+        code { background: rgba(255,255,255,0.08); }
+        .updated { color: #9a9aa4; }
+        hr { border-color: rgba(255,255,255,0.12); }
+      }
+      h1 { font-size: 26px; margin: 0 0 6px; }
+      h2 { font-size: 17px; margin: 32px 0 10px; }
+      .updated { color: #6b6b76; font-size: 14px; margin: 0 0 28px; }
+      p { margin: 0 0 14px; }
+      ul { margin: 0 0 14px; padding-left: 22px; }
+      li { margin-bottom: 8px; }
+      code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+      a { color: #4f46e5; }
+      hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 40px 0 24px; }
+      footer { font-size: 13px; color: #6b6b76; }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy — Shadow Cursor</h1>
+    <p class="updated">Last updated: 2026-09-21</p>
+
+    <p>Shadow Cursor is a browser extension that answers questions about
+    whatever you're pointing at on a web page. This page explains what data
+    it touches, where it goes, and where it doesn't.</p>
+
+    <h2>What triggers data collection</h2>
+    <p>Nothing happens until you press the hotkey (<code>Alt+Shift+S</code>)
+    or click the toolbar icon and ask a question. Shadow Cursor does not
+    read, capture, or transmit anything from a page in the background.</p>
+
+    <h2>What is collected, and where it goes</h2>
+    <p>When you summon Shadow Cursor and ask a question, the extension sends
+    the following to the Anthropic API (<code>api.anthropic.com</code>, or a
+    custom base URL you configure yourself) so the model can answer:</p>
+    <ul>
+      <li><strong>A screenshot</strong> of the region around your cursor at
+      the moment you summoned it.</li>
+      <li><strong>DOM context</strong> for the elements near your cursor: tag
+      names, ARIA roles, visible text, a handful of computed styles, and
+      on-screen positions.</li>
+      <li><strong>Your question</strong>, and the text of any earlier turns
+      in the same conversation (kept in memory for that page session
+      only).</li>
+    </ul>
+    <p>This is sent directly from your browser to Anthropic using the API key
+    you provide. Shadow Cursor's developer does not operate any server in
+    between and does not receive, log, or have access to any of it.</p>
+
+    <h2>What is stored, and where</h2>
+    <ul>
+      <li><strong>Your Anthropic API key</strong>, selected model, effort
+      level, and persona choice are stored in <code>chrome.storage.local</code>
+      — local to your browser profile on your machine, not synced to any
+      account or server.</li>
+      <li><strong>Conversation turns</strong> for an open Shadow Cursor
+      session live in memory in the page's content script and are discarded
+      when you dismiss it or navigate away. Nothing is written to disk
+      beyond the settings above.</li>
+    </ul>
+
+    <h2>What is never collected</h2>
+    <p>Shadow Cursor does not collect analytics, telemetry, or crash reports,
+    and has no third-party trackers or ad code. It does not sell or share
+    data with anyone, because it does not have a backend to collect it in the
+    first place — the only network calls it makes are the ones described
+    above, straight to Anthropic, triggered by your own action.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>storage</code> — save your settings locally, as described
+      above.</li>
+      <li><code>activeTab</code> — read and act on the page you're currently
+      looking at, only after you invoke the hotkey or click the toolbar
+      icon.</li>
+      <li>Host permission (<code>&lt;all_urls&gt;</code>) — Shadow Cursor
+      works on any site you choose to use it on, so its content script needs
+      to be able to run anywhere you summon it; it does not run without that
+      summon.</li>
+    </ul>
+
+    <h2>Third parties</h2>
+    <p>Your questions, screenshots, and page context are processed by
+    Anthropic under
+    <a href="https://www.anthropic.com/privacy">Anthropic's own privacy
+    policy</a> and
+    <a href="https://www.anthropic.com/legal/commercial-terms">commercial
+    terms</a>. No other third party is involved.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the update will be reflected here with a new
+    "Last updated" date and noted in the project's
+    <a href="https://github.com/SuperiorKe/shadow-cursor/blob/master/CHANGELOG.md">changelog</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: open an issue on the
+    <a href="https://github.com/SuperiorKe/shadow-cursor/issues">project's
+    GitHub repository</a>.</p>
+
+    <hr />
+    <footer>Shadow Cursor is open source:
+    <a href="https://github.com/SuperiorKe/shadow-cursor">github.com/SuperiorKe/shadow-cursor</a></footer>
+  </body>
+</html>
